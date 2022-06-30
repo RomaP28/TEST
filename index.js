@@ -21,8 +21,8 @@ const setLettersPosition = () => {
   str.forEach(e => e.style.position = 'absolute')
 }
 
-const handleClick = e => {
-  elem = e.target
+const handleClick = event => {
+  elem = event.target
   if (!isClicked) {
     elem.style.zIndex = 100;
     perviousPos = {
@@ -34,7 +34,7 @@ const handleClick = e => {
     isClicked++
   } else {
     elem.hidden = true
-    let elBelow = document.elementFromPoint(e.clientX, e.clientY)
+    let elBelow = document.elementFromPoint(event.clientX, event.clientY)
     elem.hidden = false
     if (!elBelow) return
     let dropBelow = elBelow.closest('.letter');
@@ -48,10 +48,6 @@ const handleClick = e => {
 }
 
 function onMove(event) {
-  movingTo(event.pageX, event.pageY)
-}
-
-function movingTo(x, y) {
-  elem.style.left = x - elem.offsetWidth / 2 + 'px'
-  elem.style.top = y - elem.offsetHeight / 2 + 'px'
+  elem.style.left = event.pageX - elem.offsetWidth / 2 + 'px'
+  elem.style.top = event.pageY - elem.offsetHeight / 2 + 'px'
 }
