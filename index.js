@@ -23,7 +23,7 @@ const setLettersPosition = () => {
 const handleClick = event => {
   elem = event.target
   if (!isClicked) {
-    elem.style.zIndex = 100;
+    elem.style.zIndex = 100
     perviousPos = {
       top: elem.getBoundingClientRect().top,
       left: elem.getBoundingClientRect().left
