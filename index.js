@@ -2,7 +2,7 @@ const input = document.querySelector('input')
 const btn = document.querySelector('button')
 const output = document.querySelector('.output')
 
-let isClicked = 0
+let isClicked = false
 let elem, perviousPos
 
 btn.addEventListener('click', () => {
@@ -12,7 +12,7 @@ btn.addEventListener('click', () => {
 })
 
 const setLettersPosition = () => {
-  const str = Array.from(document.querySelectorAll('span'))
+  const str = Array.from(document.querySelectorAll('.letter'))
   str.forEach(e => {
     e.style.left = e.getBoundingClientRect().left + 'px'
     e.style.top = e.getBoundingClientRect().top + 'px'
@@ -30,7 +30,7 @@ const handleClick = event => {
     }
     document.body.append(elem);
     document.addEventListener('mousemove', onMove)
-    isClicked++
+    isClicked = true
   } else {
     elem.hidden = true
     let elBelow = document.elementFromPoint(event.clientX, event.clientY)
@@ -42,7 +42,7 @@ const handleClick = event => {
       dropBelow.style.top = perviousPos.top + 'px'
     }
     document.removeEventListener('mousemove', onMove)
-    isClicked--
+    isClicked = false
   }
 }
 
