@@ -12,7 +12,7 @@ btn.addEventListener('click', () => {
 })
 
 const setLettersPosition = () => {
-  const str = Array.from(document.querySelectorAll('.letter'))
+  const str = document.querySelectorAll('.letter')
   str.forEach(e => {
     e.style.left = e.getBoundingClientRect().left + 'px'
     e.style.top = e.getBoundingClientRect().top + 'px'
